@@ -7,11 +7,14 @@ body {
 }
 
 .header {
+  display: flex;
+  flex-flow: row wrap;
   overflow: hidden;
   background-color:#000a12;
   padding: 20px 10px;
   color:white;
   box-shadow: 5px 5px 2px #82e9de;
+  text-align: center;
 }
 
 .header a {
@@ -28,6 +31,7 @@ body {
 .header-right {
   float: right;
   font-family:Lato;
+  line-height: 1;
 }
 
 .footer {
