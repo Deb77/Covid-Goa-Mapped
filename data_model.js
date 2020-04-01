@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const dataSchema = new Schema({
     shopname: {type:String, required:true},
     home_delivery: {type:Boolean, required:true},
-    phone_numder: {type:Number,required:true},
+    phone_number: {type:Number,required:true},
     last_open: Date,
     latitude: Number,
     longitude: Number
