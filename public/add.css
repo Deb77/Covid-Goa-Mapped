@@ -1,73 +1,97 @@
-* {
-    box-sizing: border-box;
-    font-family: Lato;
-  }
-  
-  input[type=text], select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-    font:1.1em;
-  }
-  
-  label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
-  }
-  
-  input[type=submit] {
-    background-color: #52c7b8;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
-    width:25%;
-    font-size:1.5em;
-  }
-  
-  input[type=submit]:hover {
-    background-color: #004c40;
-  }
-  
-  .container {
-    border-radius: 5px;
-    background-color:#1e1f20;
-    padding: 20px;
-    color:#82e9de;
-    font-size:1.3em;
-  }
-  
-  .col-25 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-  }
-  
-  .col-75 {
-    float: left;
-    width: 75%;
-    margin-top: 6px;
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+*{
+  font-family: Lato;
+}
+.container{
+ display: grid;
+  padding:10px;
+  color:#00897b; 
+  grid-template-columns: auto auto;
+  width:100%;
+  font-size:1.1em;
+}
 
-  .container1{
-      height:200px;
-  }
+
+.col-25 {
+  width: 100%;
+  margin: 10px;
+}
+
+.col-75 {
+  width: 100%;
+  margin:10px;
+}
+
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  font:1.2em;
+}
+
+
+input[type=submit]:hover {
+  background-color: #004c40;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+input[type=submit] {
+  background-color: #52c7b8;
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width:100px;
+  font-size:1.15em;
+}
+
+
+.container2{
   
-  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 600px) {
-    .col-25, .col-75, input[type=submit] {
-      width: 100%;
-      margin-top: 0;
-    }
-  }
+  border-radius: 5px;
+  background-color:#1e1f20;
+  align-items: center;
+  color:#82e9de;
+  font-size:1.3em;
+  padding:25px;
+  
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 3px 4px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+@media (max-width: 600px) {
+  .container { grid-template-columns: repeat(1, 1fr); }
+}
