@@ -1,0 +1,81 @@
+.flex-container{
+    display: flex;
+    flex-flow: row wrap;
+    margin: 10px;
+    justify-content: center;
+    font-family:Lato;
+}
+.emergancy-info{
+    background-color: #058d78;
+    color: white;
+    font-family:Lato;
+    padding: 5px 10px;
+    font-weight: 500;
+    width: 100%;
+    line-height: 1.5;
+}
+.about-us{
+    background-color: #555c62;
+    width: 100%;
+    color: white;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px 0px;
+}
+.about-us h3{
+    margin-top: 0px;
+}
+.about-us a{
+    color: white;
+}
+.whatsapp-button{
+    outline: none;
+    border: none;
+    text-decoration: none;
+    border-radius: 15px;
+    padding: 10px;
+    font-weight: 700;
+    color: white;
+    background-color: #52c7b8;
+    content: "";
+    clear: both;
+    display: table;
+    font-size: medium;
+}
+.whatsapp-button:hover{
+    background-color: #058d78;
+}
+.whatsapp-icon{
+    float: right;
+    padding-left: 10px;
+}
+.share-text{
+    float: left;
+}
+.iframe{
+    margin-bottom: 20px;
+}
+#map{
+    border-radius: 15px;
+    width: 100%;
+    height: 600px;
+}
+.add_text{
+    padding: 20px;
+    color: white;
+}
+.add_button{
+    background-color: #52c7b8;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 15px;
+    margin-top: 5px;
+    font-size: medium;
+    outline: none;
+    border: none;
+}
+
+.text-center{
+    text-align: center;
+}

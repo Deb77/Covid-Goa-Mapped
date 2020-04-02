@@ -1,9 +1,10 @@
 const router = require('express').Router();
-let Data = require('./data_model.js')
+let Data = require('../data_model.js')
 
 router.route('/')
     .get((req,res)=>{
-        res.render('');
+        res.send('working')
+        //res.render('');
     })
     .post((req,res)=>{
         store = new Data;

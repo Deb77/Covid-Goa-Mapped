@@ -1,11 +1,12 @@
 const router = require('express').Router();
-let Data = require('./data_model.js')
+let Data = require('../data_model.js')
 
 router.route('/')
     .get((req,res)=>{
         Data.find({})
         .then(response=>{
-            res.render('', response);
+            res.send(response);
+            //res.render('', response);
         })
         .catch((err)=>console.log(err));
     })
