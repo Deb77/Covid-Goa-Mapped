@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" type="text/css" href="./add.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <title>AddMarker</title>
+</head>
+<body>
+    <div class="header">
+        <a class="logo"><img src="./icon.png">
+        <div class="header-right">
+          <h1>Covid-Goa-Mapped</h1>
+        </div>
+        </a>
+    </div>
+    <div class="container">
+        <div class="container1">
+            <iframe
+            width="100%"
+            height="600px "
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD5tRp77iq57jfVe2zOigZVXwdrHDVo5Wo
+            &q=Space+Needle,Seattle+WA" allowfullscreen>
+        </iframe>
+        </div>
+        <div class="container2">
+            <form action="/action_page.php">
+                <div class="row">
+                  <div class="col-25">
+                    <label for="ShopName">Shop Name</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="text" id="SName" name="ShopName" placeholder="Shop name..">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label for="HomeDelivery">Home Delivery</label>
+                  </div>
+                  <div class="col-75">
+                    <select id="HD" name="HD">
+                      <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label for="ItemType">Type Of Items Sold</label>
+                  </div>
+                  <div class="col-75">
+                    <div class="dropdown">
+                      <input type="text" id="Items" placeholder="Enter/select items">
+                      <div class="dropdown-content">
+                      <a href="#"><input type="checkbox" value="Vegetable">Vegetable</a>
+                      <a href="#"><input type="checkbox" value="Fruits">Fruits</a>
+                      <a href="#"><input type="checkbox" value="Milk">Milk</a>
+                      <a href="#"><input type="checkbox" value="Newspaper">Newspaper</a>
+                      <a href="#"><input type="checkbox" value="Poultry">Poultry</a>
+                      <a href="#"><input type="checkbox" value="Meat">Meat</a>
+                      <a href="#"><input type="checkbox" value="Grocerry">Grocerry</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label for="PhoneNo">Phone Number</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="text"  name="PhoneNo" placeholder="Delivery Number..">
+                  </div>
+                </div>
+                <div class="row">
+                
+                </div>
+                <div class="row">
+                  
+                  <div class="col-75">
+                  <input type="submit" value="Submit">
+                  </div>
+                </div>
+                <input type="hidden" id="Latt" name="Latt" value="">
+                <input type="hidden" id="Long" name="Long" value="">
+              </form>
+        </div>
+        
+    </div>
+    <div class="footer">
+        <p>Deborah & Benito</p>
+     </div>
+     <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js"></script>
+</body>
+</html>
