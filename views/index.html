@@ -3,30 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="./map.css">
+    <link rel="stylesheet" href="../public/index.css" type="text/css">
+    <link rel="stylesheet" href="../public/map.css" type="text/css">
+    <link rel="stylesheet" href="../public/places.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
     <title>Covid-Goa-Mapped||Homepage</title>
 </head>
 <body>
+      <script src="../public/placesmap.js">    
+      </script>
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5tRp77iq57jfVe2zOigZVXwdrHDVo5Wo&libraries=places&callback=initAutocomplete">
+      </script>
 
-
-
-  <script>
-    var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 13,
-          center: new google.maps.LatLng(15.4,73.8),
-        });
-  </script>
 
 
 
 
 
     <div class="header">
-        <a class="logo"><img src="./icon.png">
+        <a class="logo"><img src="../public/icon.png">
         <div class="header-right">
           <h1>Covid-Goa-Mapped</h1>
         </div>
@@ -50,10 +46,11 @@
                 this%20hour%20of%20need.%0D%0ALog%20on%20to%20Covid-Goa-Maaped%20now.%0D%0A%0D%0Alink" 
                 data-action="share/whatsapp/share" >
               <div class="share-text">Share Via Whatsapp</div>
-              <img class="whatsapp-icon" src="./whatsapp.png" alt="whatsapp-icon" />
+              <img class="whatsapp-icon" src="../public/whatsapp.png" alt="whatsapp-icon" />
           </a>
-          </div> 
-
+           </div> 
+        
+        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
         <div id="map"></div>
 
       <div class="add_text text-center">
