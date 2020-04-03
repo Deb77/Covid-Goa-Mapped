@@ -7,13 +7,15 @@ router.route('/')
         //res.render('');
     })
     .post((req,res)=>{
-        store = new Data;
-        store.shopname = req.body.shopname;
-        store.home_delivery = req.body.home_delivery ;
-        store.phone_number = req.body.phone_number ;
-        store.last_open = new Date() ;
-        store.latitude = req.body.latitude ;
-        store.longitude = req.body.longitude ;
+        const shopname = req.body.shopname;
+        const home_delivery = req.body.home_delivery ;
+        const items= req.body.items;
+        const phone_number = Number(req.body.phone_number) ;
+        const last_open = new Date() ;
+        const latitude = Number(req.body.latitude) ;
+        const longitude = Number(req.body.longitude) ;
+        const store= new Data({shopname, home_delivery, items, phone_number,
+            last_open, latitude, longitude});
 
         store.save()
         .then(()=> res.json("Store added"))

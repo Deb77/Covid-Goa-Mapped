@@ -8,7 +8,7 @@ const port= 5000;
 app.set('view engine', 'ejs');
 app.use(express.json());
 
-const uri= "mongodb+srv://coutinho:chandorGOA2784272@cluster0-5mmmv.mongodb.net/test?retryWrites=true&w=majority";
+const uri= "mongodb+srv://coutinho:chandorGOA2784272@cluster0-ccugl.mongodb.net/test?retryWrites=true&w=majority";
 mongoose.connect(uri,{ useNewUrlParser: true , useCreateIndex: true, useUnifiedTopology: true});
 
 
