@@ -5,8 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" type="text/css" href="./add.css">
+    <link rel="stylesheet" href="./places.css" type="text/css">
+
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
     <title>AddMarker</title>
+
+    <script src="./placesmap.js">    
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5tRp77iq57jfVe2zOigZVXwdrHDVo5Wo&libraries=places&callback=initAutocomplete">
+    </script>
+    <script>
+      var marker = new google.maps.Marker({
+            position: {lat: 15.4, lng: 73.8},
+            map: map,
+            draggable:true,
+            title:"Drag me!"
+        });
+    </script>
+
 </head>
 <body>
     <div class="header">
@@ -17,15 +34,10 @@
         </a>
     </div>
     <div class="container">
-        <div class="container1">
-            <iframe
-            width="100%"
-            height="600px "
-            frameborder="0" style="border:0"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD5tRp77iq57jfVe2zOigZVXwdrHDVo5Wo
-            &q=Space+Needle,Seattle+WA" allowfullscreen>
-        </iframe>
+        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+        <div class="container1" id="map">
         </div>
+
         <div class="container2">
             <form action="/action_page.php">
                 <div class="row">
