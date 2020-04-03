@@ -3,8 +3,7 @@ let Data = require('../data_model.js')
 
 router.route('/')
     .get((req,res)=>{
-        res.send('working')
-        //res.render('');
+        res.render('../views/add');
     })
     .post((req,res)=>{
         const shopname = req.body.shopname;
