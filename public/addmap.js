@@ -16,7 +16,7 @@
             strictBounds: false,
           },
           options: {
-            clickableIcons: false
+            clickableIcons: true
           },
           mapTypeId: 'roadmap'
         });

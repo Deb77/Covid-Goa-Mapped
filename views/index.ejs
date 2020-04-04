@@ -15,11 +15,10 @@
       <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5tRp77iq57jfVe2zOigZVXwdrHDVo5Wo&libraries=places&callback=initAutocomplete">
       </script>
-
-
-
-
-
+      <script>
+        const shopData = JSON.parse('<%-JSON.stringify(data)%>');
+        set_markers(shopData);
+      </script>
 
     <div class="header">
         <a class="logo"><img src="./icon.png">

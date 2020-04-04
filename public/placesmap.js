@@ -13,6 +13,9 @@ function initAutocomplete() {
         latLngBounds: GOA_BOUNDS,
         strictBounds: false,
       },
+      options: {
+        clickableIcons: false
+      },
       mapTypeId: 'roadmap'
     });
     
@@ -76,3 +79,45 @@ function initAutocomplete() {
         });
       }
 
+
+
+function updateDate() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("PUT", '/', true);
+    xhr.send();
+    var date= new Date();
+    document.getElementById("last_open").innerHTML = `last open on ${date.getDate()}/ ${date.getMonth()} /${date.getFullYear()}`;
+}
+
+var infowindow = new google.maps.InfoWindow();
+//to add infowindow for each marker
+function set_markers(array) {
+
+    for (var i = 0; i < array.length; i++) {
+
+        var location = array[i];
+        var myLatLng = new google.maps.LatLng(location.latitude , location.longitude);
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: location.shop_name
+        });
+
+        google.maps.event.addListener(marker, 'click', function () {
+            infowindow.setContent(
+              `<div id="bodyContent">
+                <p>
+                  <strong>Shopname: </strong> </br>
+                  <strong>Home Delivery: </strong> </br>
+                  <strong>Items Sold: </strong> </br>
+                  <strong>Phone Number: </strong> </br>
+                  <i id="last_open">last open on ${this.last_open.getDate()} /${this.last_open.getMonth()} /${this.last_open.getFullYear()} 
+                   </i> </br></br>
+                  <a href="javascript:updateDate()"><strong>Was the shop open today?</strong></a>
+                </p>                
+              </div>`
+            );
+            infowindow.open(map, this);
+        });
+    }
+}

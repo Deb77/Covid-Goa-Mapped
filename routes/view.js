@@ -6,7 +6,7 @@ router.route('/')
         Data.find({})
         .then(response=>{
             //res.send(response);
-            res.render('../views/index.ejs', response);
+            res.render('../views/index.ejs', {data:response});
         })
         .catch((err)=>console.log(err));
     })
