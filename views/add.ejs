@@ -32,7 +32,7 @@
         </div>
 
         <div class="container2">
-            <form action="/add" method="POST">
+            <form action="/add" method="POST" enctype='application/json'>
                 <div class="row">
                   <div class="col-25">
                     <label for="ShopName">Shop Name</label>
@@ -58,15 +58,16 @@
                   </div>
                   <div class="col-75">
                     <div class="dropdown">
-                      <input type="text" id="Items" placeholder="Enter/select items">
+                      <input type="text" name="itemCus" id="Items" placeholder="Enter/select items">
                       <div class="dropdown-content">
-                      <a href="#"><input type="checkbox" value="Vegetable">Vegetable</a>
-                      <a href="#"><input type="checkbox" value="Fruits">Fruits</a>
-                      <a href="#"><input type="checkbox" value="Milk">Milk</a>
-                      <a href="#"><input type="checkbox" value="Newspaper">Newspaper</a>
-                      <a href="#"><input type="checkbox" value="Poultry">Poultry</a>
-                      <a href="#"><input type="checkbox" value="Meat">Meat</a>
-                      <a href="#"><input type="checkbox" value="Grocerry">Grocerry</a>
+                      <button type="button"><input name="item[0][items]" type="checkbox" value="Vegetable">Vegetable</button>
+                      <button type="button"><input name="item[1][items]" type="checkbox" value="Fruits">Fruits</button>
+                      <button type="button"><input name="item[2][items]" type="checkbox" value="Milk">Milk</button>
+                      <button type="button"><input name="item[3][items]" type="checkbox" value="Newspaper">Newspaper</button>
+                      <button type="button"><input name="item[4][items]" type="checkbox" value="Fish">Fish</button>
+                      <button type="button"><input name="item[5][items]" type="checkbox" value="Poultry">Poultry</button>
+                      <button type="button"><input name="item[6][items]" type="checkbox" value="Meat">Meat</button>
+                      <button type="button"><input name="item[7][items]" type="checkbox" value="Grocerry">Grocerry</button>
                       </div>
                     </div>
                   </div>
