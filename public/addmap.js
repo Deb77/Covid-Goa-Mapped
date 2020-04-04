@@ -15,6 +15,9 @@
             latLngBounds: GOA_BOUNDS,
             strictBounds: false,
           },
+          options: {
+            clickableIcons: false
+          },
           mapTypeId: 'roadmap'
         });
         
