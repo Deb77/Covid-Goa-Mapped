@@ -7,7 +7,7 @@ const port= 5000;
 
 
 app.set('view engine', 'ejs');
-app.use(express.json());
+app.use(express.urlencoded());
 app.use(express.static(__dirname + '/public'));
 
 const uri= "mongodb+srv://coutinho:chandorGOA2784272@cluster0-ccugl.mongodb.net/test?retryWrites=true&w=majority";

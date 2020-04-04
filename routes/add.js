@@ -2,17 +2,19 @@ const router = require('express').Router();
 let Data = require('../data_model.js')
 
 router.route('/')
+    
     .get((req,res)=>{
         res.render('../views/add');
     })
     .post((req,res)=>{
-        const shopname = req.body.shopname;
-        const home_delivery = req.body.home_delivery ;
+        console.log(req.body);
+        const shopname = req.body.ShopName;
+        const home_delivery = req.body.HD ;
         const items= req.body.items;
-        const phone_number = Number(req.body.phone_number) ;
+        const phone_number = Number(req.body.PhoneNo) ;
         const last_open = new Date() ;
-        const latitude = Number(req.body.latitude) ;
-        const longitude = Number(req.body.longitude) ;
+        const latitude = Number(req.body.Latt) ;
+        const longitude = Number(req.body.Long) ;
         const store= new Data({shopname, home_delivery, items, phone_number,
             last_open, latitude, longitude});
 
