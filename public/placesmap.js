@@ -14,7 +14,7 @@ function initAutocomplete() {
         strictBounds: false,
       },
       options: {
-        clickableIcons: false
+        clickableIcons: true
       },
       mapTypeId: 'roadmap'
     });
@@ -77,26 +77,18 @@ function initAutocomplete() {
           });
           map.fitBounds(bounds);
         });
-      }
+      
 
-
-
-function updateDate() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("PUT", '/', true);
-    xhr.send();
-    var date= new Date();
-    document.getElementById("last_open").innerHTML = `last open on ${date.getDate()}/ ${date.getMonth()} /${date.getFullYear()}`;
-}
 
 var infowindow = new google.maps.InfoWindow();
 //to add infowindow for each marker
-function set_markers(array) {
 
-    for (var i = 0; i < array.length; i++) {
+  const shopData = JSON.parse('<%-JSON.stringify(data)%>');
+    for (var i = 0; i < shopData.length; i++) {
 
-        var location = array[i];
+        var location = shopData[i];
         var myLatLng = new google.maps.LatLng(location.latitude , location.longitude);
+        console.log(location.latitude);
         var marker = new google.maps.Marker({
             position: myLatLng,
             map: map,
