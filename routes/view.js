@@ -11,6 +11,7 @@ router.route('/')
         .catch((err)=>console.log(err));
     })
     .put((req,res)=>{
+        console.log(req.body)
         Data.findById(req.body.id)
         .then(store =>{
             store.last_open= new Date();

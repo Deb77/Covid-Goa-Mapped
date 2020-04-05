@@ -112,11 +112,11 @@ function initAutocomplete() {
                         </br>
                         <strong>Items Sold: </strong> ${location.items}</b></br>
                         <strong>Phone Number: </strong>
-                        ${ location.phone_number=0 ?"-": location.phone_number }
+                        ${ location.phone_number===0 ?"-": location.phone_number }
                         </br>
                         <i id="last_open">last open on ${location.last_open.slice(0,10)} 
                         </i> </br></br>
-                        <a href="javascript:updateDate()"><strong>Was the shop open today?</strong></a>
+                        <a href="javascript:updateDate(${location._id})"><strong>Was the shop open today?</strong></a>
                     </p>                
                     </div>`
         const infowindow = new google.maps.InfoWindow({
