@@ -8,8 +8,8 @@ function closeOtherInfo() {
 
 function updateDate(id) {
     var xhr = new XMLHttpRequest();
-    xhr.open("PUT", '/', true);
-    xhr.send(id);
+    xhr.open("PUT", `/${id}`, true);
+    xhr.send();
     var date= new Date();
     document.getElementById("last_open").innerHTML = `last open on ${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
 }

@@ -10,7 +10,9 @@
     <title>Covid-Goa-Mapped||Homepage</title>
 </head>
 <body>
-<script src="./index.js" ></script>
+<script src="./index.js" >
+
+</script>
       <script > 
                               //start of google maps script
       var InforObj= [];     
@@ -97,7 +99,7 @@ function initAutocomplete() {
   const shopData = JSON.parse('<%-JSON.stringify(data)%>');
     for (var i = 0; i < shopData.length; i++) {
         var location = shopData[i];
-        console.log(location);
+        console.log(location._id);
         var myLatLng = new google.maps.LatLng(location.latitude , location.longitude);
         const marker = new google.maps.Marker({
             position: myLatLng,
@@ -116,7 +118,7 @@ function initAutocomplete() {
                         </br>
                         <i id="last_open">last open on ${location.last_open.slice(0,10)} 
                         </i> </br></br>
-                        <a href="javascript:updateDate(${location._id})"><strong>Was the shop open today?</strong></a>
+                        <a href="javascript:updateDate('${location._id}')"><strong>Was the shop open today?</strong></a>
                     </p>                
                     </div>`
         const infowindow = new google.maps.InfoWindow({
