@@ -48,5 +48,17 @@ body {
     border-top:1px solid #82e9de; 
     
  }
+.footer i{
+  color: #c2cad1;
+}
 
+.disclaimer{
+  padding: 30px;
+  opacity: 0.5;
+}
+.disclaimer a{
+  color: #c2cad1;
+  opacity: 0.8;
+  font-size: x-small;
+}
 

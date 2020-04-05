@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./map.css" type="text/css">
     <link rel="stylesheet" href="./places.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
-    <title>Covid-Goa-Mapped||Homepage</title>
+    <title>Covid-Goa-Mapped||Find shops open in your area</title>
 </head>
 <body>
 <script src="./index.js" >
@@ -31,6 +31,12 @@ function initAutocomplete() {
         latLngBounds: GOA_BOUNDS,
         strictBounds: false,
       },
+      /*styles:[{
+        "featureType": "poi.business",
+        "stylers": [
+                  { "visibility": "off" }
+                ]
+      }],*/
       options: {
         clickableIcons: true
       },
@@ -134,14 +140,15 @@ function initAutocomplete() {
 }
                                         //end of google maps scrit
       </script>
+      
       <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5tRp77iq57jfVe2zOigZVXwdrHDVo5Wo&libraries=places&callback=initAutocomplete">
       </script>
       <noscript>Sorry, your browser does not support JavaScript!</noscript>
-
+    
 
     <div class="header">
-        <a class="logo"><img src="./icon.png">
+        <a class="logo" href="/"><img src="./icon.png">
         <div class="header-right">
           <h1>Covid-Goa-Mapped</h1>
         </div>
@@ -155,14 +162,15 @@ function initAutocomplete() {
           <div class="about-us">
           <h3>Find Shops open in your area in the Map below.</h3>
             All the data on this site is provided 
-            <a href="https://en.wikipedia.org/wiki/Crowdsourcing"> Crowdsourced.  </a>    
+            <a href="https://en.wikipedia.org/wiki/Crowdsourcing"> Crowdsourced </a>.   
             Data is provided by users and directly reflected on our 
             website ,and is not verified by us.
             
             </br>(Tap on marker for more Information)</br></br>
             <a class="whatsapp-button"
                 href= "https://api.whatsapp.com/send?text=Covid-Goa-Mapped%20helps%20you%20find%20Stores%20open%20in%20your%20Area%20in%20
-                this%20hour%20of%20need.%0D%0ALog%20on%20to%20Covid-Goa-Maaped%20now.%0D%0A%0D%0Alink" 
+                this%20hour%20of%20need.%0D%0ALog%20on%20to%20Covid-Goa-Maaped%20now.%0D%0A%0D%0A%0D%0A%0D%0A%0D%0A%0D%0A%0D%0A%0D%0A%0D%0A%0D%0A
+                %0D%0A%0D%0A%0D%0A%0D%0A%0D%0A%0D%0A%0D%0A%0D%0A%0D%0A%0D%0Awww.covid-goa-mapped.live" 
                 data-action="share/whatsapp/share" >
               <div class="share-text">Share Via Whatsapp</div>
               <img class="whatsapp-icon" src="./whatsapp.png" alt="whatsapp-icon" />
@@ -185,9 +193,15 @@ function initAutocomplete() {
       </div>
     </div>
     <div class="footer">
-       <p>Deborah & Benito</p></br></br>
-       <strong>Disclaimer: </strong> We cannot and do not guarantee the accuracy of the Information provided.
-    </br></br>
+       <p><i>Developed by Deborah & Benito</i></p>
+       <div class="disclaimer">
+        <strong>Disclaimer: </strong>
+         We cannot and do not guarantee the accuracy of the Information provided.<br>
+         <i><a href="icons8.com">Icons from icons8</a></i>
+       </div>
+       <a href="https://github.com/Deb77/Covid-Goa-Mapped">
+         <img src="./github.png" alt="gitbub icon">
+       </a>
     </div>
 </body>
 </html>
