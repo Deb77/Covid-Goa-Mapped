@@ -10,15 +10,133 @@
     <title>Covid-Goa-Mapped||Homepage</title>
 </head>
 <body>
-      <script src="./placesmap.js">    
+<script src="./index.js" ></script>
+      <script > 
+                              //start of google maps script
+      var InforObj= [];     
+      var map;
+      const GOA_BOUNDS={
+                  north: 15.83,
+                  south: 14.92,
+                  west: 73.6,
+                  east: 74.36,
+                  };
+function initAutocomplete() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 15.4, lng: 73.8},
+      zoom: 13,
+      restriction: {
+        latLngBounds: GOA_BOUNDS,
+        strictBounds: false,
+      },
+      options: {
+        clickableIcons: true
+      },
+      mapTypeId: 'roadmap'
+    });
+    
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.LEFT_TOP].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+
+        var markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            if (!place.geometry) {
+              console.log("Returned place contains no geometry");
+              return;
+            }
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              icon: icon,
+              title: place.name,
+              position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          map.fitBounds(bounds);
+        });
+                                                  //to add infowindow for each marker
+  const shopData = JSON.parse('<%-JSON.stringify(data)%>');
+    for (var i = 0; i < shopData.length; i++) {
+        var location = shopData[i];
+        console.log(location);
+        var myLatLng = new google.maps.LatLng(location.latitude , location.longitude);
+        const marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: location.shopname  
+        });
+        let content= `<div id="bodyContent">
+                    <p>
+                        <strong>Shopname: </strong>${location.shopname} </br>
+                        <strong>Home Delivery: </strong>
+                        ${ location.home_deliver? "Yes":"No" } 
+                        </br>
+                        <strong>Items Sold: </strong> ${location.items}</b></br>
+                        <strong>Phone Number: </strong>
+                        ${ location.phone_number=0 ?"-": location.phone_number }
+                        </br>
+                        <i id="last_open">last open on ${location.last_open.slice(0,10)} 
+                        </i> </br></br>
+                        <a href="javascript:updateDate()"><strong>Was the shop open today?</strong></a>
+                    </p>                
+                    </div>`
+        const infowindow = new google.maps.InfoWindow({
+            content: content,
+            });
+
+            marker.addListener('click', function () {
+            closeOtherInfo();
+            infowindow.open(marker.get('map'), marker);
+            InforObj[0] = infowindow;
+            });
+    }
+}
+                                        //end of google maps scrit
       </script>
       <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5tRp77iq57jfVe2zOigZVXwdrHDVo5Wo&libraries=places&callback=initAutocomplete">
       </script>
-      <script>
-        const shopData = JSON.parse('<%-JSON.stringify(data)%>');
-        set_markers(shopData);
-      </script>
+      <noscript>Sorry, your browser does not support JavaScript!</noscript>
+
 
     <div class="header">
         <a class="logo"><img src="./icon.png">
