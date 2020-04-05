@@ -10,13 +10,12 @@
     <title>Covid-Goa-Mapped||Homepage</title>
 </head>
 <body>
+<script src="./index.js" ></script>
       <script > 
-
-
-
-
+                              //start of google maps script
+      var InforObj= [];     
       var map;
-const GOA_BOUNDS={
+      const GOA_BOUNDS={
                   north: 15.83,
                   south: 14.92,
                   west: 73.6,
@@ -94,71 +93,50 @@ function initAutocomplete() {
           });
           map.fitBounds(bounds);
         });
-      
-
-
-var infowindow = new google.maps.InfoWindow();
-//to add infowindow for each marker
-
+                                                  //to add infowindow for each marker
   const shopData = JSON.parse('<%-JSON.stringify(data)%>');
-  console.log(shopData);
     for (var i = 0; i < shopData.length; i++) {
-
         var location = shopData[i];
         console.log(location);
         var myLatLng = new google.maps.LatLng(location.latitude , location.longitude);
-        var marker = new google.maps.Marker({
+        const marker = new google.maps.Marker({
             position: myLatLng,
             map: map,
-            title:  `<div id="bodyContent">
-                <p>
-                  <strong>Shopname: </strong>${location.shopname} </br>
-                  <strong>Home Delivery: </strong>
-                    ${location.home_deliver?"Yes":"No"} 
-                  </br>
-                  <strong>Items Sold: </strong> ${location.items}</b>
-                  <strong>Phone Number: </strong>${location.phone_number} </br>
-                  <i id="last_open">last open on ${location.last_open.slice(0,10)} 
-                   </i> </br></br>
-                  <a href="javascript:updateDate()"><strong>Was the shop open today?</strong></a>
-                </p>                
-              </div>`
+            title: location.shopname  
         });
+        let content= `<div id="bodyContent">
+                    <p>
+                        <strong>Shopname: </strong>${location.shopname} </br>
+                        <strong>Home Delivery: </strong>
+                        ${ location.home_deliver? "Yes":"No" } 
+                        </br>
+                        <strong>Items Sold: </strong> ${location.items}</b></br>
+                        <strong>Phone Number: </strong>
+                        ${ location.phone_number=0 ?"-": location.phone_number }
+                        </br>
+                        <i id="last_open">last open on ${location.last_open.slice(0,10)} 
+                        </i> </br></br>
+                        <a href="javascript:updateDate()"><strong>Was the shop open today?</strong></a>
+                    </p>                
+                    </div>`
+        const infowindow = new google.maps.InfoWindow({
+            content: content,
+            });
 
-        google.maps.event.addListener(marker, 'click', function () {
-            infowindow.setContent(
-              this.title
-            );
-            infowindow.open(map, this);
-        });
-
+            marker.addListener('click', function () {
+            closeOtherInfo();
+            infowindow.open(marker.get('map'), marker);
+            InforObj[0] = infowindow;
+            });
     }
 }
-
-
-
-
-
-
-
+                                        //end of google maps scrit
       </script>
       <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5tRp77iq57jfVe2zOigZVXwdrHDVo5Wo&libraries=places&callback=initAutocomplete">
       </script>
-      <script>
-        const shopData = JSON.parse('<%-JSON.stringify(data)%>');
-        //set_markers(shopData);
+      <noscript>Sorry, your browser does not support JavaScript!</noscript>
 
-
-        function updateDate() {
-            var xhr = new XMLHttpRequest();
-            xhr.open("PUT", '/', true);
-            xhr.send();
-            var date= new Date();
-            document.getElementById("last_open").innerHTML = `last open on ${date.getDate()}/ ${date.getMonth()} /${date.getFullYear()}`;
-        }
-
-      </script>
 
     <div class="header">
         <a class="logo"><img src="./icon.png">
