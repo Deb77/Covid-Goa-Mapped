@@ -9,10 +9,12 @@ router.route('/')
             res.render('../views/index.ejs', {data:response});
         })
         .catch((err)=>console.log(err));
-    })
+    });    
+
+router.route('/:id')
     .put((req,res)=>{
-        console.log(req.body)
-        Data.findById(req.body.id)
+        console.log(req.params.id)
+        Data.findById(req.params.id)
         .then(store =>{
             store.last_open= new Date();
 
