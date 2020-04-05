@@ -16,7 +16,7 @@ router.route('/')
         });
         if(req.body.itemCus!=='')
         {
-            items += req.body.itemCus;
+            items += req.body.itemCus
         }
         else{
             items=items.substring(0,items.length-1);
@@ -33,8 +33,8 @@ router.route('/')
         store.save()
         .then(()=> res.json("Store added"))
         .catch( err => res.status(400).json('Error: '+err));
-
+        res.redirect("/")
     });
-
+    
 
     module.exports= router;
