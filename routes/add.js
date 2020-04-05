@@ -7,16 +7,28 @@ router.route('/')
         res.render('../views/add');
     })
     .post((req,res)=>{
-        console.log(req.body);
         const shopname = req.body.ShopName;
         const home_delivery = req.body.HD ;
-        const items= req.body.items;
+        const item = req.body.item;
+        let items = ' ';
+        item.forEach((it)=>{
+            items+=it.items+',';
+        });
+        if(req.body.itemCus!=='')
+        {
+            items += req.body.itemCus;
+        }
+        else{
+            items=items.substring(0,items.length-1);
+        }
         const phone_number = Number(req.body.PhoneNo) ;
         const last_open = new Date() ;
+        
         const latitude = Number(req.body.Latt) ;
         const longitude = Number(req.body.Long) ;
         const store= new Data({shopname, home_delivery, items, phone_number,
             last_open, latitude, longitude});
+            console.log(store);
 
         store.save()
         .then(()=> res.json("Store added"))
