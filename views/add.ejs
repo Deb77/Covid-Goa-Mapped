@@ -12,6 +12,30 @@
     
       <script src="./addmap.js">
       </script>
+       <script>
+        function validate(){
+        var isValid = true;
+        if(!document.getElementById('SName').value.trim().length){
+            isValid = false;
+            alert('Please enter ShopName');
+        }
+        else if(!document.getElementById('Items').value.trim().length){
+        isValid = false;
+            alert('Please enter item/items');
+        }
+      return isValid;
+
+        function check(num) {
+            var checkboxes = document.getElementsByClassName("checkboxes");
+            var chec=checkboxes[num];
+            if(chec.checked==true)
+            chec.checked=false
+            else
+            chec.checked=true
+          }
+    
+    }
+      </script> 
       <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5tRp77iq57jfVe2zOigZVXwdrHDVo5Wo&libraries=places&callback=initAutocomplete">
       </script>
@@ -19,6 +43,16 @@
 
 </head>
 <body>
+  <script>
+    function check(num) {
+        var checkboxes = document.getElementsByClassName("checkboxes");
+        var chec=checkboxes[num];
+          if(chec.checked==true)
+            chec.checked=false
+          else
+            chec.checked=true
+    }
+  </script>
     <div class="header">
         <a class="logo"><img src="./icon.png">
         <div class="header-right">
@@ -32,7 +66,7 @@
         </div>
 
         <div class="container2">
-            <form action="/add" method="POST" enctype='application/json'>
+            <form action="/add" method="POST" enctype='application/json' onsubmit="return validate()">
                 <div class="row">
                   <div class="col-25">
                     <label for="ShopName">Shop Name</label>
@@ -60,14 +94,14 @@
                     <div class="dropdown">
                       <input type="text" name="itemCus" id="Items" placeholder="Enter/select items">
                       <div class="dropdown-content">
-                      <button type="button"><input name="item[0][items]" type="checkbox" value="Vegetable">Vegetable</button>
-                      <button type="button"><input name="item[1][items]" type="checkbox" value="Fruits">Fruits</button>
-                      <button type="button"><input name="item[2][items]" type="checkbox" value="Milk">Milk</button>
-                      <button type="button"><input name="item[3][items]" type="checkbox" value="Newspaper">Newspaper</button>
-                      <button type="button"><input name="item[4][items]" type="checkbox" value="Fish">Fish</button>
-                      <button type="button"><input name="item[5][items]" type="checkbox" value="Poultry">Poultry</button>
-                      <button type="button"><input name="item[6][items]" type="checkbox" value="Meat">Meat</button>
-                      <button type="button"><input name="item[7][items]" type="checkbox" value="Grocerry">Grocerry</button>
+                        <button type="button" class="check" onClick="check(0)"><input id="chec" class="checkboxes" name="item[0][items]" type="checkbox" value="Vegetable">Vegetable</button>
+                        <button type="button" class="check" onClick="check(1)"><input class="checkboxes" name="item[1][items]" type="checkbox" value="Fruits">Fruits</button>
+                        <button type="button" class="check" onClick="check(2)"><input class="checkboxes" name="item[2][items]" type="checkbox" value="Milk">Milk</button>
+                        <button type="button" class="check" onClick="check(3)"><input class="checkboxes" name="item[3][items]" type="checkbox" value="Newspaper">Newspaper</button>
+                        <button type="button" class="check" onClick="check(4)"><input class="checkboxes" name="item[4][items]" type="checkbox" value="Fish">Fish</button>
+                        <button type="button" class="check" onClick="check(5)"><input class="checkboxes" name="item[5][items]" type="checkbox" value="Poultry">Poultry</button>
+                        <button type="button" class="check" onClick="check(6)"><input class="checkboxes" name="item[6][items]" type="checkbox" value="Meat">Meat</button>
+                        <button type="button" class="check" onClick="check(7)"><input class="checkboxes" name="item[7][items]" type="checkbox" value="Grocerry">Grocerry</button>
                       </div>
                     </div>
                   </div>
@@ -84,9 +118,8 @@
                 
                 </div>
                 <div class="row">
-                  
                   <div class="col-75">
-                  <input type="submit" value="Submit">
+                  <input type="submit" value="Submit" >
                   </div>
                 </div>
                 <input type="hidden" id="Latt" name="Latt" value="">
