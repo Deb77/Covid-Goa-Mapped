@@ -7,13 +7,21 @@
     <link rel="stylesheet" href="./map.css" type="text/css">
     <link rel="stylesheet" href="./places.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <script>
+      window.addEventListener("load", function () {
+      const loader = document.querySelector(".loader");
+      loader.className += " hidden"; // class "loader hidden"
+      });
+    </script>
     <title>Covid-Goa-Mapped||Find shops open in your area</title>
 </head>
 <body>
 <script src="./index.js" >
 
 </script>
-      <script > 
+
+      <script> 
+        // class "loader hidden"
                               //start of google maps script
       var InforObj= [];     
       var map;
@@ -139,14 +147,17 @@ function initAutocomplete() {
     }
 }
                                         //end of google maps scrit
+                                        
       </script>
       
       <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5tRp77iq57jfVe2zOigZVXwdrHDVo5Wo&libraries=places&callback=initAutocomplete">
       </script>
       <noscript>Sorry, your browser does not support JavaScript!</noscript>
-  
-
+      
+      <div class="loader">
+      <img src="./Wedges-3s-200px.gif">
+    </div>
     <div class="header">
         <a class="logo" href="/"><img src="./icon.png">
         <div class="header-right">
@@ -189,12 +200,10 @@ function initAutocomplete() {
       </div>
       <div class="about-us text-center">
         Please help us improve the Information on this site by 
-<<<<<<< HEAD
             <a href="https://github.com/Deb77/Covid-Goa-Mapped">Contributing </a>or 
             <a href="mailto:benito.coutinho@gmail.com? subject= Discrepancy in Shop Listing" target="_blank">
             reporting any Discrepancy 
              </a>       with any of the shops listed below.
-=======
             <a href="/add">Contributing </a>or 
             <a href="https://forms.gle/xnoBehXnBjKrXqHF7" target="_blank">
             reporting any Discrepancy
@@ -202,7 +211,6 @@ function initAutocomplete() {
             <a href="https://forms.gle/xnoBehXnBjKrXqHF7" target="_blank">
               giving us a feedback.
             </a>
->>>>>>> 2adaac766bebe9a07a9f2b64661d231e62a287d0
       </div>
     </div>
     <div class="footer">
