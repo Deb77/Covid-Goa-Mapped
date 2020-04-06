@@ -52,7 +52,15 @@
           else
             chec.checked=true
     }
+
+    window.addEventListener("load", function () {
+      const loader = document.querySelector(".loader");
+      loader.className += " hidden"; // class "loader hidden"
+    });
   </script>
+    <div class="loader">
+      <img src="./Wedges-3s-200px.gif">
+    </div>
     <div class="header">
         <a class="logo" href="/"><img src="./icon.png">
         <div class="header-right">
