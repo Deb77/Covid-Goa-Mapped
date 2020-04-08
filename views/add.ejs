@@ -45,6 +45,12 @@
         isValid = false;
             alert('Please enter item/items');
         }
+        if( (document.getElementById('Latt').value == "0") || (document.getElementById('Long').value == "0") ){
+          isValid = false;
+            alert("Please tap on the map to drop a marker at the shop location.");
+
+        }
+        
       return isValid;
         }
 
@@ -128,8 +134,8 @@
                   <input type="submit" value="Submit" >
                   </div>
                 </div>
-                <input type="hidden" id="Latt" name="Latt" value="">
-                <input type="hidden" id="Long" name="Long" value="">
+                <input type="hidden" id="Latt" name="Latt" value="0">
+                <input type="hidden" id="Long" name="Long" value="0">
               </form>
         </div>
         
