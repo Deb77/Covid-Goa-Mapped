@@ -31,9 +31,11 @@ router.route('/')
             console.log(store);
 
         store.save()
-        .then(()=> res.json("Store added"))
+        .then(()=> {
+        res.redirect("/");}
+        )
         .catch( err => res.status(400).json('Error: '+err));
-        res.redirect("/")
+        
     });
     
 

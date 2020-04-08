@@ -14,28 +14,7 @@
       <script src="./addmap.js">
       </script>
        <script>
-        function validate(){
-        var isValid = true;
-        if(!document.getElementById('SName').value.trim().length){
-            isValid = false;
-            alert('Please enter ShopName');
-        }
-        else if(!document.getElementById('Items').value.trim().length){
-        isValid = false;
-            alert('Please enter item/items');
-        }
-      return isValid;
-
-        function check(num) {
-            var checkboxes = document.getElementsByClassName("checkboxes");
-            var chec=checkboxes[num];
-            if(chec.checked==true)
-            chec.checked=false
-            else
-            chec.checked=true
-          }
-    
-    }
+        
       </script> 
       <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5tRp77iq57jfVe2zOigZVXwdrHDVo5Wo&libraries=places&callback=initAutocomplete">
@@ -45,14 +24,32 @@
 </head>
 <body>
   <script>
+    var count = 0;
     function check(num) {
         var checkboxes = document.getElementsByClassName("checkboxes");
         var chec=checkboxes[num];
-          if(chec.checked==true)
-            chec.checked=false
-          else
-            chec.checked=true
+          if(chec.checked==true){
+            chec.checked=false;
+            count -= 1;
+          }
+          else{
+            chec.checked=true;
+            count += 1;
+          }   
     }
+
+    function validate(){
+        var isValid = true;
+        if(!document.getElementById('SName').value.trim().length){
+            isValid = false;
+            alert('Please enter ShopName');
+        }
+        else if((!document.getElementById('Items').value.trim().length)&&(count==0)){
+        isValid = false;
+            alert('Please enter item/items');
+        }
+      return isValid;
+        }
 
     window.addEventListener("load", function () {
       const loader = document.querySelector(".loader");
