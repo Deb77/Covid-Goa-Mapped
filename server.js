@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const app= express();
 const router= express.Router();
-const port= 5000;
+const port= process.env.PORT || 5000;
 
 
 app.set('view engine', 'ejs');

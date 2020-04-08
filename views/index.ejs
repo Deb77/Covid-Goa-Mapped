@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="./favicon.png">
     <link rel="stylesheet" href="./index.css" type="text/css">
     <link rel="stylesheet" href="./map.css" type="text/css">
+    <link rel="shortcut icon" type="image/png" href="./favicon.png">
     <link rel="stylesheet" href="./places.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <script data-ad-client="ca-pub-7084405664917841" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
       window.addEventListener("load", function () {
       const loader = document.querySelector(".loader");
@@ -40,12 +41,6 @@ function initAutocomplete() {
         latLngBounds: GOA_BOUNDS,
         strictBounds: false,
       },
-      /*styles:[{
-        "featureType": "poi.business",
-        "stylers": [
-                  { "visibility": "off" }
-                ]
-      }],*/
       options: {
         clickableIcons: true
       },
@@ -114,7 +109,6 @@ function initAutocomplete() {
   const shopData = JSON.parse('<%-JSON.stringify(data)%>');
     for (var i = 0; i < shopData.length; i++) {
         var location = shopData[i];
-        console.log(location._id);
         var myLatLng = new google.maps.LatLng(location.latitude , location.longitude);
         const marker = new google.maps.Marker({
             position: myLatLng,
@@ -133,7 +127,7 @@ function initAutocomplete() {
                         </br>
                         <i id="last_open">last open on ${location.last_open.slice(0,10)} 
                         </i> </br></br>
-                        <a href="javascript:updateDate('${location._id}')"><strong>Was the shop open today?</strong></a>
+                        <a href="javascript:updateDate('${location._id}')"><strong>Click me </strong></a>if the shop was open today.
                     </p>                
                     </div>`
         const infowindow = new google.maps.InfoWindow({
@@ -173,19 +167,14 @@ function initAutocomplete() {
     <div class="flex-container">
           <div class="about-us">
           <h3>Find Shops open in your area in the Map below.</h3>
-            All the data on this site is provided 
+            All the data on this site is
             <a href="https://en.wikipedia.org/wiki/Crowdsourcing" target="_blank"> Crowdsourced </a>.   
             Data is provided by users and directly reflected on our 
-            website ,and is not verified by us.
+            website, and is not verified by us.
             
             </br>(Tap on marker for more Information)</br></br>
             <a class="whatsapp-button"
-                href= "https://api.whatsapp.com/send?text=Covid-Goa-Mapped%20helps%20you%20find%20Stores%20
-                        open%20in%20your%20Area%20in%20this%20hour%20of%20need.%20Covid-Goa-Mapped
-                        %20is%20a%20crowdsourced%20initiative%20to%20map%20the%20stores%20open%20
-                        in%20Goa.%20Log%20on%20to%20Covid-Goa-Maped%20now-%20www.covid-goa-mapped.
-                        live%20.%20Help%20us%20improve%20our%20listing-%20
-                        www.covid-goa-maped.live%2Fadd%0A" 
+                href= "https://api.whatsapp.com/send?text=Covid-Goa-Mapped%20helps%20you%20find%20Stores%20open%20in%20your%20Area%20in%20this%20hour%20of%20need.%20Covid-Goa-Mapped%20is%20a%20crowdsourced%20initiative%20to%20map%20the%20stores%20open%20in%20Goa.%20%0ALog%20on%20to%20Covid-Goa-Maped%20now-%20%20%20https%3A%2F%2Fcovid-goa-mapped.live%2F%20%0A%20Help%20us%20improve%20our%20listing-%20%20%20%20%20%20%20%20https%3A%2F%2Fcovid-goa-mapped.live%2Fadd" 
                 data-action="share/whatsapp/share" target="_blank">
               <div class="share-text">Share Via Whatsapp</div>
               <img class="whatsapp-icon" src="./whatsapp.png" alt="whatsapp-icon" />
@@ -201,7 +190,7 @@ function initAutocomplete() {
       </div>
       <div class="about-us text-center">
         Please help us improve the Information on this site by 
-            <a href="https://github.com/Deb77/Covid-Goa-Mapped">Contributing </a>or
+            <a href="/add">Contributing </a>or 
             <a href="https://forms.gle/xnoBehXnBjKrXqHF7" target="_blank">
             reporting any Discrepancy
             </a>       with any of the shops listed above or

@@ -11,5 +11,6 @@ function updateDate(id) {
     xhr.open("PUT", `/${id}`, true);
     xhr.send();
     var date= new Date();
+    alert("Thank you for contributing");
     document.getElementById("last_open").innerHTML = `last open on ${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
 }
